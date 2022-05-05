@@ -1,0 +1,25 @@
+.note-container{
+  background-color: #C4C4C4; /*cambia*/
+  width: 27%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2%;
+  border-radius: 20px;
+  position: relative;
+  margin: 10px 5px;
+}
+.note-title{
+  font-size: xx-large;
+}
+.note-text,
+.note-tag{
+  font-size: x-large;
+}
+.note-tag{
+  color: #878787;
+  position: absolute;
+  bottom: 0;
+}

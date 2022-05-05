@@ -1,0 +1,29 @@
+.container-login{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.mode-login{
+    width: 6%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 5%;
+    margin-right: 5%;
+}
+.logo-login{
+    width: 50%;
+    margin-top: 20%;
+    padding-bottom: 30%;
+}
+.login-text{
+    font-size: 30px;
+    padding-bottom: 6%;
+    font-weight: 400;
+}
+.google-logo{
+    width: 15%;
+}

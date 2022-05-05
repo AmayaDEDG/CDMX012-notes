@@ -1,0 +1,33 @@
+.create-container{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.create-note-container{
+    background-color: #C4C4C4;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 20px;
+}
+.note-input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+input{
+    background-color: #C4C4C4;
+    font-size: 50px;
+    border: 0;
+    margin: 10%;
+    color: #2A2929;
+}
+button{
+    width: 40%;
+    font-size: 30px;
+}
