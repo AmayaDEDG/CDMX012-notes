@@ -1,12 +1,13 @@
-import { Navigate, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/Login"
+import { signInWithGoogle } from '../lib/firebaseAuth.js'
 
-const PublicRoutes = ({ isAuth, setIsAuth }) => {
-    console.log(isAuth)
+
+const PublicRoutes = () => {
     return (
         <Routes>
-            <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
-            <Route path='*' element={<Navigate to='/login' replace />} />
+            <Route path='/' element={<Login signInWithGoogle={signInWithGoogle} />} />
+            {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
         </Routes>
     )
 }

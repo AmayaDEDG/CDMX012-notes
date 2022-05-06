@@ -21,19 +21,6 @@ function Create(props) {
     setTag(e.target.value)
   }
 
-  // const handleSubmit = e => {
-  //   e.preventDefault()
-
-  //   const newNote = {
-  //     title: title,
-  //     text: text,
-  //     tag: tag
-  //   }
-
-  //   props.onSubmit(newNote)
-
-  //   navigate('/')
-  // }
   const notesCollectionRef = collection(db, 'notes')
   const createNote = async () =>{
     await addDoc(notesCollectionRef, { title, text, tag })
@@ -66,7 +53,10 @@ function Create(props) {
           name='inputTag'
           onChange={handleTag}  
           />
-          <button className='create-btn' onClick={createNote}>Agregar nota</button>
+          <button 
+          className='create-btn' 
+          onClick={createNote}>Agregar nota
+          </button>
         </div>
       </article>
     </section>

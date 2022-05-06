@@ -1,27 +1,9 @@
 import React from 'react';
 import '../stylesheets/Base.css';
 import { useNavigate } from 'react-router';
-import { signOut } from 'firebase/auth';
-import { auth } from '../firebaseConfig';
 
-function Base({ setIsAuth }) {
+function Base({ logout }) {
   const navigate = useNavigate();
-  
-  const callCreatePage = () => {
-    setIsAuth = true
-    navigate('/create')
-  }
-  
-  const Logout = () => {
-    signOut(auth).then(() => {
-      localStorage.clear()
-      setIsAuth = false
-      window.location.pathname = '/login'
-      console.log('Sign-out successful.')
-    }).catch((error) => {
-      console.log(error)
-    });
-  }
 
   return (
     <>
@@ -41,7 +23,7 @@ function Base({ setIsAuth }) {
             className='add-icon icon'
             alt='Add icon'
             src={require('../icons/add-dark.png')}
-            onClick={callCreatePage}
+            onClick={() => navigate('/create')}
           />
           <img
             className='search-icon icon'
@@ -52,7 +34,7 @@ function Base({ setIsAuth }) {
             className='logout-icon icon'
             alt='Logout icon'
             src={require('../icons/logout-dark.png')}
-            onClick={Logout}
+            onClick={logout}
           />
         </section>
       </header>

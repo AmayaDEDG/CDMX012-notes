@@ -1,24 +1,30 @@
+import { useState } from 'react';
 import './App.css';
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from './routers/AppRouter';
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 function App() {
-      // const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(null)
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setIsAuth(user)
+    } else {
+      setIsAuth(null)
+    }
+  });
 
   return (
-    // <ThemeProvider>
-    //   {isAuth ? (<Base setIsAuth={setIsAuth}/>) : null}
-      // <Routes>
-      //   <Route exact path='/login' element={<Login setIsAuth={setIsAuth} isAuth={isAuth} />} />
-      //   <Route exact path='/' element={<PrivateRoute isAuth={isAuth} />}>
-      //     <Route exact path='/' element={<Home />} />
-      //     <Route exact path='/create' element={<Create />} />
-      //     <Route exact path='/single-note' element={<SingleNote />} />
-      //     <Route exact path='/edit' element={<Edit />} />
-      //   </Route>
-      // </Routes>
-    
-      <AppRouter />
-    // </ThemeProvider>
+    <>
+      <BrowserRouter>
+        {/* <ThemeProvider> */}
+        <AppRouter isAuth={isAuth} />
+        {/* </ThemeProvider> */}
+      </BrowserRouter>
+
+    </>
   );
 }
 

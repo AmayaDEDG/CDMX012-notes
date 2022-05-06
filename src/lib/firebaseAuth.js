@@ -10,7 +10,7 @@ export const signInWithGoogle = () => {
     })
 }
 
-export const Logout = () => {
+export const logout = () => {
     signOut(auth).then(() => {
       console.log('Sign-out successful.')
     }).catch((error) => {
