@@ -19,7 +19,6 @@ function Home() {
     console.log('Firestore uso')
   },[getNotes])
 
-  
   return (
     <div className='Home'>
       <nav>

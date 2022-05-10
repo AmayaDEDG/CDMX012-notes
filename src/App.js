@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import './App.css';
-import { BrowserRouter } from "react-router-dom";
 import AppRouter from './routers/AppRouter';
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -18,12 +17,9 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
         {/* <ThemeProvider> */}
         <AppRouter isAuth={isAuth} />
         {/* </ThemeProvider> */}
-      </BrowserRouter>
-
     </>
   );
 }

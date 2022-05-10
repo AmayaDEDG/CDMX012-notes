@@ -12,7 +12,10 @@ export function Login({ signInWithGoogle }) {
           alt='Kimind logo light mode'
           src={require('../icons/logo-light-mode.png')}
         />
-        <p className='login-text'>Inicia sesión con</p>
+        <p
+          className='login-text'>
+          Inicia sesión con
+        </p>
         <img
           className='google-logo'
           alt='Google logo'

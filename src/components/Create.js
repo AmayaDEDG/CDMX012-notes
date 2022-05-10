@@ -39,6 +39,7 @@ function Create(props) {
           name='inputTitle' 
           onChange={handleTitle}
           />
+          {/* cambiarlo a text area */}
           <input 
           className='note-input-text'
           type='text'
