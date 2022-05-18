@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../stylesheets/Create.css';
 import { addDoc, collection } from 'firebase/firestore'
 import { db } from '../lib/firebaseConfig'
 
-function Create(props) {
+function Create({ darkMode }) {
   const navigate = useNavigate()
 
   const [title, setTtitle] = useState('')
@@ -22,7 +22,7 @@ function Create(props) {
   }
 
   const notesCollectionRef = collection(db, 'notes')
-  const createNote = async () =>{
+  const createNote = async () => {
     await addDoc(notesCollectionRef, { title, text, tag })
     navigate('/')
   }
@@ -30,35 +30,42 @@ function Create(props) {
   return (
     <section className='create-container'>
       <article className='create-note-container'>
-        <Link to='/'>Home</Link>
-        <div className='note-input'>
-          <input 
-          className='note-input-title'
-          type='text'
-          placeholder='Título...'
-          name='inputTitle' 
-          onChange={handleTitle}
+        <section className='note-input'>
+          <img
+            className='back-icon'
+            alt='Back icon that returns to last pagee'
+            src={require('../icons/back-icon.png')}
+            onClick={() => navigate(-1)}
           />
-          {/* cambiarlo a text area */}
-          <input 
-          className='note-input-text'
-          type='text'
-          placeholder='Texto...'
-          name='inputText' 
-          onChange={handleText} 
+          <input
+            className='note-input-title'
+            type='text'
+            placeholder='Título...'
+            name='inputTitle'
+            onChange={handleTitle}
           />
-          <input 
-          className='note-input-tag'
-          type='text'
-          placeholder='Etiqueta...'
-          name='inputTag'
-          onChange={handleTag}  
+          <textarea className='note-input-text'
+            placeholder='Texto...'
+            name='inputText'
+            cols='80'
+            rows='10'
+            onChange={handleText} >
+          </textarea>
+          {/* <p>#</p> */}
+          <input
+            className='note-input-tag'
+            type='text'
+            placeholder='Etiqueta...'
+            name='inputTag'
+            onChange={handleTag}
           />
-          <button 
-          className='create-btn' 
-          onClick={createNote}>Agregar nota
-          </button>
-        </div>
+          <img
+            className='accept-icon create'
+            alt='Accept icon that activates the creation of the note'
+            src={darkMode ? require('../icons/accept-light.png') : require('../icons/accept-dark.png')}
+            onClick={createNote}
+          />
+        </section>
       </article>
     </section>
   );

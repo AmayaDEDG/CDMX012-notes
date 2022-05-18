@@ -10,16 +10,33 @@
   border-radius: 20px;
   position: relative;
   margin: 10px 5px;
+  overflow-y: hidden;
+  overflow-x:hidden;
 }
 .note-title{
-  font-size: xx-large;
+  font-size: 170%;
+  padding-bottom: 5%;
+  margin: 0px 5px;
+  line-height:1.1em;
 }
 .note-text,
 .note-tag{
   font-size: x-large;
+  margin: 0px 5px;
+}
+.note-text{
+  white-space: wrap;
+  overflow: hidden;
+  max-height: 18vh;
+  text-overflow: ellipsis;
+  margin-bottom: 30px;
 }
 .note-tag{
   color: #878787;
   position: absolute;
   bottom: 0;
+  margin-bottom: 20px;
+}
+.dark-mode .note-container{
+  background-color: #4F4F4F;
 }

@@ -1,3 +1,9 @@
+.login{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #dadada;
+}
 .container-login{
     height: 100%;
     display: flex;
@@ -26,4 +32,7 @@
 }
 .google-logo{
     width: 15%;
+}
+.dark-mode .login {
+    background-color: #292828;
 }

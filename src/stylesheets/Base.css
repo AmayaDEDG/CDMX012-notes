@@ -29,6 +29,12 @@
     height: 40px;
     z-index: 3;
 }
+.logout-icon{
+    transform: rotate(180deg);
+}
 .notes-space{
     margin-top: 10%;
+}
+.dark-mode .fixed-items{
+    background-color: #4F4F4F;
 }

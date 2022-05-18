@@ -16,17 +16,18 @@ function Home() {
 
   useEffect(() => {
     getNotes()
-    console.log('Firestore uso')
+    console.log('Firestore en uso')
   },[getNotes])
 
   return (
-    <div className='Home'>
+    <div className='home'>
       <nav>
       </nav> 
       <section className='notes-list'>
         { notesList.map((note) => 
           <Notes
-            key={note.id}
+            key={note.title} //esto hace que se ordenen
+            id={note.id}
             title={note.title}
             text={note.text}
             tag={note.tag}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Note from '../components/Note';
 import Create from '../components/Create';
@@ -8,17 +9,19 @@ import { logout } from '../lib/firebaseAuth.js'
 
 
 const PrivateRoutes = () => {
+  const [darkMode, setDarkMode] = useState(false)
+
   return (
-    <>
+    <section className={`${darkMode && 'dark-mode'}`}>
       {/* <Router> */}
-        <Base logout={logout} />
+        <Base logout={logout} setDarkMode={setDarkMode} darkMode={darkMode}/>
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/create' element={<Create />} />
-          <Route path='/note' element={<Note />} />
+          <Route path='/create' element={<Create darkMode={darkMode}/>} />
+          <Route path='/note/:id' element={<Note darkMode={darkMode}/>} />
         </Routes>
       {/* </Router> */}
-    </>
+    </section>
   )
 }
 

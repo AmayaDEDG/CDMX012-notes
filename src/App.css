@@ -4,6 +4,11 @@
     font-family: 'Inria Sans', sans-serif;
 }
 body{
-    background-color: #dadada; /*cambia*/
-    color: #2A2929; /*cambia*/
+    background-color: #dadada;
+    color: #2A2929;
+}
+
+body .dark-mode {
+    background-color: #292828;
+    color: #E1E1E1;
 }

@@ -16,11 +16,11 @@ function App() {
   });
 
   return (
-    <>
+    <section className='app'>
         {/* <ThemeProvider> */}
         <AppRouter isAuth={isAuth} />
         {/* </ThemeProvider> */}
-    </>
+    </section>
   );
 }
 

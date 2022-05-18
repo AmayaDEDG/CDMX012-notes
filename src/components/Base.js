@@ -2,38 +2,38 @@ import React from 'react';
 import '../stylesheets/Base.css';
 import { useNavigate } from 'react-router';
 
-function Base({ logout }) {
+function Base({ logout, setDarkMode, darkMode }) {
   const navigate = useNavigate();
-
   return (
     <>
       <header className='fixed-items'>
         <img
           className='logo-light'
-          alt='Kimind logo light mode'
-          src={require('../icons/logo-home-dark.png')}
+          alt={darkMode ? 'Kimind logo dark mode' : 'Kimind logo light mode'}
+          src={darkMode ? require('../icons/logo-home-light.png') : require('../icons/logo-home-dark.png')}
         />
         <img
           className='mode-icon icon'
           alt='Moon icon that activates dark mode'
-          src={require('../icons/dark-mode.png')}
+          src={darkMode ? require('../icons/light-mode.png') : require('../icons/dark-mode.png')}
+          onClick={() => setDarkMode((previousMode) => !previousMode)}
         />
         <section className='menu-bar'>
           <img
             className='add-icon icon'
             alt='Add icon'
-            src={require('../icons/add-dark.png')}
+            src={darkMode ? require('../icons/add-light.png') : require('../icons/add-dark.png')}
             onClick={() => navigate('/create')}
           />
           <img
             className='search-icon icon'
             alt='Search icon'
-            src={require('../icons/search-dark.png')}
+            src={darkMode ? require('../icons/search-light.png') : require('../icons/search-dark.png')}
           />
           <img
             className='logout-icon icon'
             alt='Logout icon'
-            src={require('../icons/logout-dark.png')}
+            src={darkMode ? require('../icons/logout-light.png') : require('../icons/logout-dark.png')}
             onClick={logout}
           />
         </section>
